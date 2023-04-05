@@ -1,6 +1,6 @@
 Feature:As a user, I should be able to change profile info settings under the Profile module
 
-  @CEA10-349 @wip
+  @CEA10-349 @wip @smoke
   Scenario:User can see at least following titles inside personal info under Profile Settings page;
   =>Full name/Email/Phone Number
     Given User logged in successfully
