@@ -6,7 +6,8 @@ Feature:Contacts module functionality
     And the user is on the contacts module page
 
   Scenario Outline:User can create a new contact
-    When the user enters phone number "<phoneNumber>"
+    When the user clicks on new contact button
+    And the user enters phone number "<phoneNumber>"
     And the user enters email "<email>"
     And the user enters address "<address>"
     And the user enters postal code "<postalCode>"
@@ -20,3 +21,14 @@ Feature:Contacts module functionality
       | 856-636-8749 | art@venere.org      | 6649 N Blue Gum St  | 8014       | Liverpool | EN    | England  |
       | 210-812-9597 | valentine@gmail.com | 6649 N 775 17th st  | 78203      | Lisbon    | PR    | Portugal |
       | 956-841-7216 | calbares@gmail.com  | 56 Eth 1st moris st | 34256      | Barcelona | SPN   | Spain    |
+
+    Scenario: User can see all the contacts as a list inside the middle column
+              and total number of the contacts near the “All Contacts” tab
+
+
+
+    Scenario: User can change the profile picture of any contact with a previously
+              uploaded picture by using “Choose from files” option
+
+
+    Scenario: User can delete any selected contact
