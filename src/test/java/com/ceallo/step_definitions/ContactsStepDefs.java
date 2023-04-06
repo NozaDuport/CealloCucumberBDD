@@ -1,17 +1,22 @@
 package com.ceallo.step_definitions;
 
+import com.ceallo.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ContactsStepDefs {
-    @Given("User is already on dashboard")
-    public void user_is_already_on_dashboard() {
-        System.out.println("user is on dash");
+
+    HomePage homePage = new HomePage();
+
+    @Given("the user is on the contacts page")
+    public void the_user_is_on_the_contacts_page() {
+
+        homePage.contactsModule.click();
     }
     @When("the user clicks on the new contact button")
     public void the_user_clicks_on_the_new_contact_button() {
-        System.out.println("user is on dash");
+
     }
     @When("the user enters phone number {string}")
     public void the_user_enters_phone_number(String string) {
