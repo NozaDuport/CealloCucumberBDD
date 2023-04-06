@@ -3,7 +3,7 @@ Feature:Contacts module functionality
 
   Background:
     Given User logged in successfully
-    And User is already on dashboard
+    And the user is on the contacts page
 
   Scenario Outline:User can create a new contact
     When the user clicks on the new contact button
