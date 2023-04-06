@@ -11,6 +11,6 @@ public class HomePage {
 
     }
 
-    @FindBy(id = "contacts")
+    @FindBy(xpath = "(//li[@data-id='contacts'])[1]")
     public WebElement contactsModule;
 }
