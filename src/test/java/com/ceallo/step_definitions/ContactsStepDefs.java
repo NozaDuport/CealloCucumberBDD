@@ -17,6 +17,11 @@ public class ContactsStepDefs {
         homePage.contactsModule.click();
     }
 
+
+    @When("the user clicks on new contact button")
+    public void the_User_clicks_On_new_contact_button() {
+    }
+
     @When("the user enters phone number {string}")
     public void the_user_enters_phone_number(String string) {
         contacts.phoneBox.sendKeys(string);
@@ -55,4 +60,6 @@ public class ContactsStepDefs {
 
 
     }
+
+
 }
