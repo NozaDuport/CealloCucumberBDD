@@ -1,5 +1,6 @@
 package com.ceallo.step_definitions;
 
+import com.ceallo.pages.ContactsPage;
 import com.ceallo.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,46 +9,50 @@ import io.cucumber.java.en.When;
 public class ContactsStepDefs {
 
     HomePage homePage = new HomePage();
+    ContactsPage contacts = new ContactsPage();
 
-    @Given("the user is on the contacts page")
-    public void the_user_is_on_the_contacts_page() {
+    @Given("the user is on the contacts module page")
+    public void the_user_is_on_the_contacts_module_page() {
 
         homePage.contactsModule.click();
     }
-    @When("the user clicks on the new contact button")
-    public void the_user_clicks_on_the_new_contact_button() {
 
-    }
     @When("the user enters phone number {string}")
     public void the_user_enters_phone_number(String string) {
-        System.out.println("user is on dash");
+        contacts.phoneBox.sendKeys(string);
+
     }
     @When("the user enters email {string}")
     public void the_user_enters_email(String string) {
-        System.out.println("user is on dash");
+        contacts.emailBox.sendKeys(string);
     }
     @When("the user enters address {string}")
     public void the_user_enters_address(String string) {
-        System.out.println("user is on dash");
+        contacts.addressBox.sendKeys(string);
     }
     @When("the user enters postal code {string}")
     public void the_user_enters_postal_code(String string) {
-        System.out.println("user is on dash");
+
+        contacts.postcodeBox.sendKeys(string);
     }
     @When("the user enters city {string}")
     public void the_user_enters_city(String string) {
-        System.out.println("user is on dash");
+        contacts.cityBox.sendKeys(string);
+
     }
     @When("the user enters state {string}")
     public void the_user_enters_state(String string) {
-        System.out.println("user is on dash");
+
+        contacts.stateBox.sendKeys(string);
     }
     @When("the user enters country {string}")
     public void the_user_enters_country(String string) {
-        System.out.println("user is on dash");
+        contacts.countryBox.sendKeys(string);
+
     }
     @Then("the user should display new created contact")
     public void the_user_should_display_new_created_contact() {
-        System.out.println("user is on dash");
+
+
     }
 }
