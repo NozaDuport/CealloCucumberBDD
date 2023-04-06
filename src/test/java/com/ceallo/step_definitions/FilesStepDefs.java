@@ -1,17 +1,24 @@
 package com.ceallo.step_definitions;
 
+import com.ceallo.pages.FilesPage;
+import com.ceallo.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
 
 public class FilesStepDefs {
+
+    HomePage homePage= new HomePage();
+    FilesPage filesPage= new FilesPage();
     @Given("user on the file page")
     public void user_on_the_file_page() {
+        homePage.filesButton.click();
 
     }
     @Given("user click three dot menu")
     public void user_click_three_dot_menu() {
+        filesPage.threeDotButton.click();
 
     }
     @When("user click add to favorite button")
