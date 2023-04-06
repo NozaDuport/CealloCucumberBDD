@@ -3,11 +3,10 @@ Feature:Contacts module functionality
 
   Background:
     Given User logged in successfully
-    And the user is on the contacts page
+    And the user is on the contacts module page
 
   Scenario Outline:User can create a new contact
-    When the user clicks on the new contact button
-    And the user enters phone number "<phoneNumber>"
+    When the user enters phone number "<phoneNumber>"
     And the user enters email "<email>"
     And the user enters address "<address>"
     And the user enters postal code "<postalCode>"
