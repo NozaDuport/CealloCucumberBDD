@@ -12,5 +12,5 @@ public class HomePage {
     }
 
     @FindBy(id = "contacts")
-    public WebElement contactsPage;
+    public WebElement contactsModule;
 }
