@@ -16,26 +16,24 @@ public class ContactsPage {
     public WebElement newContactButton;
 
     @FindBy(css = "input[inputmode='tel']")
-
     public WebElement phoneBox;
-
 
     @FindBy(css = "input[inputmode='email']")
     public WebElement emailBox;
 
-    @FindBy(xpath = "(//input[@class='property__value'])[1]")
+    @FindBy(xpath = "(//input[@type='text'])[11]")
     public WebElement addressBox;
 
-    @FindBy(xpath = "(//input[@class='property__value'])[6]")
+    @FindBy(xpath = "//div[@class='property-masonry']//div[3]//input[1]")
     public WebElement postcodeBox;
 
-    @FindBy(xpath = "(//input[@class='property__value'])[7]")
+    @FindBy(xpath = "(//input[@type='text'])[14]")
     public WebElement cityBox;
 
-    @FindBy(xpath = "(//input[@class='property__value'])[8]")
+    @FindBy(xpath = "(//input[@type='text'])[15]")
     public WebElement stateBox;
 
-    @FindBy(xpath = "(//input[@class='property__value'])[9]")
+    @FindBy(xpath = "(//input[@type='text'])[16]")
     public WebElement countryBox;
 
 
