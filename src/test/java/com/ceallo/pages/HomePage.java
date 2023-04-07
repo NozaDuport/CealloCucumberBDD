@@ -10,7 +10,8 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
-    @FindBy(xpath = "//ul[@id=\"appmenu\"]/li[@data-id=\"files\"]")
+    @FindBy(xpath = "(//a[@aria-label='Files'])[1]")
     public WebElement filesButton;
+
 
 }
