@@ -6,14 +6,17 @@ Feature: As a user, I should be able to see Daily-Weekly-Monthly calendar view a
     Given User logged in successfully
 
     Scenario: Verify that user can display daily calendar view
-      When User navigates to calendar toplink
-      Then Daily calendar view should be displayed
+      When  User navigates to calendar icon on the top
+      And   User navigates to dropdown menu on the left upper corner
+      And   User chooses Daily view from dropdown menu
+      Then  Daily calendar view should be displayed
 
 
     Scenario: Verify that user can display weekly calendar view
-      Given  User is on the daily calendar page
-      When   User navigates to the
-
+      Given User navigates to calendar icon on the top
+      When  User chooses Weekly view from dropdown menu
+      Then  Weekly calendar view should be displayed
+@wip
     Scenario: User can display monthly calendar view
 
 
