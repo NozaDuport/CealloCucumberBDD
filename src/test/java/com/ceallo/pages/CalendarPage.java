@@ -28,4 +28,8 @@ public class CalendarPage {
 
     @FindBy (xpath = "//button[@class='datepicker-button-section__datepicker-label button datepicker-label']" )
     public WebElement dataPicker;
+
+    @FindBy(xpath = "//button[@class='button primary new-event']")
+    public WebElement newEventBtn;
+
 }

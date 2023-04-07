@@ -100,7 +100,6 @@ public class CalendarStepDefs {
         calendarPage.dropDownMenu.click();
         calendarPage.monthBtn.click();
     }
-
     @Then("Monthly calendar view should be displayed")
     public void monthlyCalendarViewShouldBeDisplayed() {
         LocalDate date = LocalDate.now();
@@ -110,7 +109,18 @@ public class CalendarStepDefs {
         System.out.println(currentDate);
         System.out.println(expectedMonth);
         Assert.assertEquals(currentDate, expectedMonth);
+    }
 
+    //Fourth scenario
+    @When("User clicks on New event button under the Calendar module")
+    public void userClicksOnNewEventButtonUnderTheCalendarModule() {
+    }
 
+    @And("User saves an event in the calendar")
+    public void userSavesAnEventInTheCalendar() {
+    }
+
+    @Then("User should see it on the related day through the Monthly Calendar view")
+    public void userShouldSeeItOnTheRelatedDayThroughTheMonthlyCalendarView() {
     }
 }
