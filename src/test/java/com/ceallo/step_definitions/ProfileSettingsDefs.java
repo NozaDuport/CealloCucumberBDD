@@ -52,6 +52,27 @@ public class ProfileSettingsDefs {
 
     }
 
+    @When("User clicks phone number privacy list")
+    public void user_clicks_phone_number_privacy_list() {
+        profileSettingsPage.phoneNumberPrivateOrPublicList.click();
+
+    }
+
+    @When("User selects phone number private option")
+    public void user_selects_phone_number_private_option() {
+        profileSettingsPage.phoneNumberPrivateSelectButton.click();
+        BrowserUtils.sleep(3);
+
+    }
+
+    @Then("user should be able to see private icon next to phone number")
+    public void user_should_be_able_to_see_private_icon_next_to_phone_number() {
+
+        Assert.assertEquals("icon-federation-menu icon-password",profileSettingsPage.phoneNumberPrivateOrPublicList.getAttribute("class"));
+
+    }
+
+
 
 
 }
