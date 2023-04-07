@@ -1,7 +1,8 @@
 Feature: As a user, I should be able to add a file to favorites, rename any file and give some comments on any file.
 
   Background:
-    Given user on the file page
+    Given User logged in successfully
+    And user on the file page
     And user click three dot menu
 
   Scenario: User can add any file to favorites from its own three dots menu
