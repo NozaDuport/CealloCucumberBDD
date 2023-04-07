@@ -14,12 +14,18 @@ public class CalendarPage {
     @FindBy(xpath = "//div[@class='new-event-today-view-section']/div")
     public WebElement dropDownMenu;
 
-    @FindBy(xpath = "//span[@class='action-button__icon icon-view-day']/..")
+    @FindBy(xpath = "//span[@class='action-button__icon icon-view-day']")
     public WebElement dayBtn;
 
-    @FindBy(xpath = "//span[@class='action-button__icon icon-view-week']/..")
+    @FindBy(xpath = "//span[@class='action-button__icon icon-view-week']")
     public WebElement weekBtn;
 
     @FindBy(xpath = "//th")
     public List<WebElement> daysOfWeek;
+
+    @FindBy(xpath = "//span[@class='action-button__icon icon-view-module']")
+    public WebElement monthBtn;
+
+    @FindBy (xpath = "//button[@class='datepicker-button-section__datepicker-label button datepicker-label']" )
+    public WebElement dataPicker;
 }

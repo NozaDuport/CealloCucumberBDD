@@ -93,4 +93,24 @@ public class CalendarStepDefs {
             System.out.println("Test failed");
         }
     }
+
+    //Third scenario
+    @When("User chooses Monthly view from dropdown menu")
+    public void userChoosesMonthlyViewFromDropdownMenu() {
+        calendarPage.dropDownMenu.click();
+        calendarPage.monthBtn.click();
+    }
+
+    @Then("Monthly calendar view should be displayed")
+    public void monthlyCalendarViewShouldBeDisplayed() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM YYYY");
+        String currentDate = date.format(formatter);
+        String expectedMonth = calendarPage.dataPicker.getText();
+        System.out.println(currentDate);
+        System.out.println(expectedMonth);
+        Assert.assertEquals(currentDate, expectedMonth);
+
+
+    }
 }
