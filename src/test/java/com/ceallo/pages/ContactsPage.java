@@ -16,6 +16,7 @@ public class ContactsPage {
     public WebElement newContactButton;
 
     @FindBy(css = "input[inputmode='tel']")
+
     public WebElement phoneBox;
 
 
