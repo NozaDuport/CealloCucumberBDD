@@ -26,3 +26,7 @@ public class LoginPage {
     public WebElement profileMenuSettingsButton;
 
 }
+
+
+//Joaquin O'Keefe
+//Lionel Messi
