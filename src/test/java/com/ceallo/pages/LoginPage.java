@@ -19,4 +19,14 @@ public class LoginPage {
     @FindBy (id="submit-form")
     public WebElement loginBtn;
 
+    @FindBy (xpath = "//div[@id='expand']")
+    public WebElement profileMenuButton;
+
+    @FindBy (xpath = "//ul//li[@data-id='settings']")
+    public WebElement profileMenuSettingsButton;
+
 }
+
+
+//Joaquin O'Keefe
+//Lionel Messi
