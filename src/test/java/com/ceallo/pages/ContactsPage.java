@@ -37,6 +37,8 @@ public class ContactsPage {
     public WebElement countryBox;
 
 
+    @FindBy(id = "contact-fullname")
+    public WebElement contactName;
 
 
 }

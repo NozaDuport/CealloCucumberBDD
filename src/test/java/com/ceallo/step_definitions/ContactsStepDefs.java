@@ -5,6 +5,7 @@ import com.ceallo.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class ContactsStepDefs {
 
@@ -59,7 +60,7 @@ public class ContactsStepDefs {
 
     @Then("the user should display new created contact")
     public void the_user_should_display_new_created_contact() {
-
+        Assert.assertTrue(contacts.contactName.isDisplayed());
 
     }
 

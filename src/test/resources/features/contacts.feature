@@ -5,6 +5,7 @@ Feature:Contacts module functionality
     Given User logged in successfully
     And the user is on contacts module page
 
+    @wip1
   Scenario Outline:User can create a new contact
     When the user clicks on new contact button
     And the user enters phone number "<phoneNumber>"
