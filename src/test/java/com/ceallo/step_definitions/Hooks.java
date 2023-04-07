@@ -16,7 +16,6 @@ public class Hooks {
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
     @After
     public void tearDown(Scenario scenario){
         if (scenario.isFailed()){
@@ -30,5 +29,6 @@ public class Hooks {
 
         Driver.closeDriver();
     }
+
 
 }
