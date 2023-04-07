@@ -11,51 +11,52 @@ public class ContactsStepDefs {
     HomePage homePage = new HomePage();
     ContactsPage contacts = new ContactsPage();
 
-    @Given("the user is on the contacts module page")
-    public void the_user_is_on_the_contacts_module_page() {
-
+    @Given("the user is on contacts module page")
+    public void the_user_is_on_contacts_module_page() {
         homePage.contactsModule.click();
     }
 
     @When("the user clicks on new contact button")
     public void the_User_clicks_On_new_contact_button() {
+        contacts.newContactButton.click();
     }
 
     @When("the user enters phone number {string}")
-    public void the_user_enters_phone_number(String string) {
-        contacts.phoneBox.sendKeys(string);
-
+    public void the_user_enters_phone_number(String phoneNumber) {
+        contacts.phoneBox.sendKeys(phoneNumber);
     }
+
     @When("the user enters email {string}")
-    public void the_user_enters_email(String string) {
-
-        contacts.emailBox.sendKeys(string);
+    public void the_user_enters_email(String email) {
+        contacts.emailBox.sendKeys(email);
     }
+
     @When("the user enters address {string}")
-    public void the_user_enters_address(String string) {
-
-        contacts.addressBox.sendKeys(string);
+    public void the_user_enters_address(String address) {
+        contacts.addressBox.sendKeys(address);
     }
+
     @When("the user enters postal code {string}")
-    public void the_user_enters_postal_code(String string) {
+    public void the_user_enters_postal_code(String postCode) {
 
-        contacts.postcodeBox.sendKeys(string);
+        contacts.postcodeBox.sendKeys(postCode);
     }
+
     @When("the user enters city {string}")
-    public void the_user_enters_city(String string) {
-        contacts.cityBox.sendKeys(string);
-
+    public void the_user_enters_city(String city) {
+        contacts.cityBox.sendKeys(city);
     }
+
     @When("the user enters state {string}")
-    public void the_user_enters_state(String string) {
-
-        contacts.stateBox.sendKeys(string);
+    public void the_user_enters_state(String state) {
+        contacts.stateBox.sendKeys(state);
     }
+
     @When("the user enters country {string}")
-    public void the_user_enters_country(String string) {
-        contacts.countryBox.sendKeys(string);
-
+    public void the_user_enters_country(String country) {
+        contacts.countryBox.sendKeys(country);
     }
+
     @Then("the user should display new created contact")
     public void the_user_should_display_new_created_contact() {
 
