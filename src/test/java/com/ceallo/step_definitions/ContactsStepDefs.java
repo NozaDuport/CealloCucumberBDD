@@ -17,7 +17,6 @@ public class ContactsStepDefs {
         homePage.contactsModule.click();
     }
 
-
     @When("the user clicks on new contact button")
     public void the_User_clicks_On_new_contact_button() {
     }
@@ -29,10 +28,12 @@ public class ContactsStepDefs {
     }
     @When("the user enters email {string}")
     public void the_user_enters_email(String string) {
+
         contacts.emailBox.sendKeys(string);
     }
     @When("the user enters address {string}")
     public void the_user_enters_address(String string) {
+
         contacts.addressBox.sendKeys(string);
     }
     @When("the user enters postal code {string}")
