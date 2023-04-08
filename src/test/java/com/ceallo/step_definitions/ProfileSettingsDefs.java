@@ -4,10 +4,15 @@ import com.ceallo.pages.LoginPage;
 import com.ceallo.pages.ProfileSettingsPage;
 import com.ceallo.utilities.BrowserUtils;
 import com.ceallo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import java.util.Date;
+
+import java.text.SimpleDateFormat;
 
 public class ProfileSettingsDefs {
     LoginPage loginPage = new LoginPage();
@@ -50,13 +55,17 @@ public class ProfileSettingsDefs {
         Assert.assertEquals(actualFullName, string2);
 
 
+
     }
 
-    @When("User clicks phone number privacy list")
+
+
+    @And("user clicks phone number privacy list")
     public void user_clicks_phone_number_privacy_list() {
         profileSettingsPage.phoneNumberPrivateOrPublicList.click();
 
     }
+
 
     @When("User selects phone number private option")
     public void user_selects_phone_number_private_option() {
@@ -72,7 +81,6 @@ public class ProfileSettingsDefs {
                 profileSettingsPage.phoneNumberPrivateOrPublicList.getAttribute("class"));
 
     }
-
 
 
 
