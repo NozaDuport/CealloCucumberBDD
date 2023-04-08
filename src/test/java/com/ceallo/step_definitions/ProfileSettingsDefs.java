@@ -68,7 +68,8 @@ public class ProfileSettingsDefs {
     @Then("user should be able to see private icon next to phone number")
     public void user_should_be_able_to_see_private_icon_next_to_phone_number() {
 
-        Assert.assertEquals("icon-federation-menu icon-password",profileSettingsPage.phoneNumberPrivateOrPublicList.getAttribute("class"));
+        Assert.assertEquals("icon-federation-menu icon-password",
+                profileSettingsPage.phoneNumberPrivateOrPublicList.getAttribute("class"));
 
     }
 
