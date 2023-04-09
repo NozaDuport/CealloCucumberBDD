@@ -32,7 +32,6 @@ public class StatusStepDefs {
     }
 
 
-
     //2nd-Scenario----------------------------------------------------------------
 
     @When("click on status icon")

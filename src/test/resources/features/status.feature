@@ -37,6 +37,7 @@ Feature: As a user, I should be able to change my online status and set a status
   Scenario:User can set a custom status message with also using any emoji option provided
 
 
+
   Scenario:User can clear status message or set a time to clear the message automatically
 
 
