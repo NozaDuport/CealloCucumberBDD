@@ -98,6 +98,7 @@ public class FilesStepDefs {
         filesPage.threeDotDetailPage.click();
         BrowserUtils.sleep(3);
         filesPage.deleteCommentButton.click();
+        BrowserUtils.sleep(3);
 
 
     }
