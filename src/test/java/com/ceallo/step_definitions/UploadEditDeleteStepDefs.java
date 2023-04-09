@@ -34,7 +34,34 @@ public class UploadEditDeleteStepDefs {
     public void file_gets_created() {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(uploadEditDeletePage.createdTest123File.isDisplayed());
-        //first scenario
+    }
+    @When("user clicks three dots of a file")
+    public void user_clicks_three_dots_of_a_file() {
+        // Write code here that turns the phrase above into concrete actions
+        uploadEditDeletePage.threeDotsOftest123.click();
 
+    }
+    @When("clicks Move of Copy")
+    public void clicks_move_of_copy() {
+        // Write code here that turns the phrase above into concrete actions
+        uploadEditDeletePage.moveOrCopyButton.click();
+    }
+    @When("chooses Talk file and clicks Move to Talk button")
+    public void chooses_talk_file_and_clicks_move_to_talk_button() {
+        // Write code here that turns the phrase above into concrete actions
+        uploadEditDeletePage.talkFile.click();
+        uploadEditDeletePage.moveToTalkButton.click();
+
+    }
+    @Then("file is moved to Talk file")
+    public void file_is_moved_to_talk_file() {
+        // Write code here that turns the phrase above into concrete actions
+        uploadEditDeletePage.talkButtonMainMenu.click();
+        Assert.assertTrue(uploadEditDeletePage.test123File.isDisplayed());
+        uploadEditDeletePage.threeDotsOftest123.click();
+        uploadEditDeletePage.moveOrCopyButton.click();
+        uploadEditDeletePage.homeButton.click();
+        uploadEditDeletePage.moveButton.click();
+        uploadEditDeletePage.homeButtonToMainMenu.click();
     }
 }
