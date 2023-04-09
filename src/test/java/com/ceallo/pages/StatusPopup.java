@@ -63,10 +63,29 @@ public class StatusPopup {
     @FindBy(xpath = "//div[@class='user-status-menu-item']//a")
     public WebElement statusButton;
 
+    @FindBy(xpath = "//div[@class='user-status-menu-item']//a//span")
+    public WebElement statusButtonTextElement;
+
     @FindBy(xpath = "//button[@rel='noreferrer noopener']")
     public WebElement popupCloseButton;
 
+    @FindBy(xpath = "//div[@class='predefined-statuses-list']//div//span[2]")
+    public List<WebElement> defaultStatusMessage;
+
+
+
+    
+
+    
+
+    
+
+    
+
+  
+
    
+    
 
 
     
