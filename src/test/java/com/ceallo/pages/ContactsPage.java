@@ -15,6 +15,15 @@ public class ContactsPage {
     @FindBy(id = "new-contact-button")
     public WebElement newContactButton;
 
+    @FindBy(xpath = "//input[@placeholder='Choose property type']")
+    public WebElement addNewProperty;
+
+    @FindBy(xpath = "//div[@title='Detailed name']")
+    public WebElement detailedNameOption;
+
+    @FindBy(xpath = "(//input[@type='text'])[6]")
+    public WebElement name;
+
     @FindBy(css = "input[inputmode='tel']")
     public WebElement phoneBox;
 
@@ -38,7 +47,7 @@ public class ContactsPage {
 
 
     @FindBy(id = "contact-fullname")
-    public WebElement contactName;
+    public WebElement contactCheck;
 
 
 }
