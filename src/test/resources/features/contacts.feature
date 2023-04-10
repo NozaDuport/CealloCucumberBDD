@@ -5,31 +5,30 @@ Feature:Contacts module functionality
     Given User logged in successfully
     And the user is on contacts module page
 
-    @wip1
+  @wip1
   Scenario Outline:User can create a new contact
     When the user clicks on new contact button
+    And the user clicks on add new property option
+    And the user clicks on detailed name option
+    And the user enters contact name "<contactName>"
     And the user enters phone number "<phoneNumber>"
     And the user enters email "<email>"
-    And the user enters address "<address>"
-    And the user enters postal code "<postalCode>"
-    And the user enters city "<city>"
-    And the user enters state "<state>"
-    And the user enters country "<country>"
     Then the user should display new created contact
 
     Examples:List of contacts
-      | phoneNumber  | email               | address             | postalCode | city      | state | country  |
-      | 856-636-8749 | art@venere.org      | 6649 N Blue Gum St  | 8014       | Liverpool | EN    | England  |
-      | 210-812-9597 | valentine@gmail.com | 6649 N 775 17th st  | 78203      | Lisbon    | PR    | Portugal |
-      | 956-841-7216 | calbares@gmail.com  | 56 Eth 1st moris st | 34256      | Barcelona | SPN   | Spain    |
-
-    Scenario: User can see all the contacts as a list inside the middle column
-              and total number of the contacts near the “All Contacts” tab
+      | contactName       | phoneNumber  |  | email               |
+      | Arten Vener       | 856-636-8749 |  | art@venere.org      |
+      | Valentine Hopkins | 210-812-9597 |  | valentine@gmail.com |
+      | Calbares More     | 956-841-7216 |  | calbares@gmail.com  |
 
 
 
-    Scenario: User can change the profile picture of any contact with a previously
-              uploaded picture by using “Choose from files” option
+  Scenario: User can see all the contacts as a list inside the middle column
+  and total number of the contacts near the “All Contacts” tab
 
 
-    Scenario: User can delete any selected contact
+  Scenario: User can change the profile picture of any contact with a previously
+  uploaded picture by using “Choose from files” option
+
+
+  Scenario: User can delete any selected contact
