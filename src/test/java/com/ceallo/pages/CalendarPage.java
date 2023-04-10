@@ -29,16 +29,16 @@ public class CalendarPage {
     @FindBy (xpath = "//button[@class='datepicker-button-section__datepicker-label button datepicker-label']" )
     public WebElement dataPicker;
 
-    @FindBy(css = "button[class='button primary new-event']")
+    @FindBy(xpath = "//button[@class='button primary new-event']")
     public WebElement newEventBtn;
 
     @FindBy(css = "input[placeholder='Event title']")
     public WebElement eventTitle;
 
     @FindBy (id = "allDay")
-    public WebElement allDayCheckBox;
+    public List<WebElement> allDayCheckBox;
 
-    @FindBy(linkText = "save")
+    @FindBy(className = "primary")
     public WebElement saveBtn;
 
     @FindBy(xpath = "//table[@class='fc-scrollgrid-sync-table']/tbody/tr/td")

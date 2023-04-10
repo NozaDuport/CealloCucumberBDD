@@ -30,7 +30,7 @@ Feature: As a user, I should be able to see Daily-Weekly-Monthly calendar view a
       And   User saves an event in the calendar
       Then  User should see it on the related day through the Monthly Calendar view
 
-    @wip
+  @wip
     Scenario: Verify user can delete any event through the Monthly Calendar view by clicking on the event
     and then using “more” option
 

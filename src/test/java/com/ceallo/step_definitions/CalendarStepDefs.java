@@ -2,11 +2,13 @@ package com.ceallo.step_definitions;
 
 import com.ceallo.pages.BasePage;
 import com.ceallo.pages.CalendarPage;
+import com.ceallo.utilities.BrowserUtils;
 import com.ceallo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
@@ -115,18 +117,21 @@ public class CalendarStepDefs {
     //Fourth scenario
     @When("User clicks on New event button under the Calendar module")
     public void userClicksOnNewEventButtonUnderTheCalendarModule() {
-        calendarPage.newEventBtn.click();
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", calendarPage.newEventBtn);
     }
 
     @And("User fills out the event form")
     public void userFillsOutTheEventForm() {
         calendarPage.eventTitle.sendKeys("Meeting with Alina");
-        calendarPage.allDayCheckBox.click();
     }
 
     @And("User saves an event in the calendar")
     public void userSavesAnEventInTheCalendar() {
-        calendarPage.saveBtn.click();
+        BrowserUtils.waitFor(10);
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", calendarPage.saveBtn);
+        BrowserUtils.waitFor(10);
     }
 
     @Then("User should see it on the related day through the Monthly Calendar view")
