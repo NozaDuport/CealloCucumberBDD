@@ -64,4 +64,17 @@ public class UploadEditDeleteStepDefs {
         uploadEditDeletePage.moveButton.click();
         uploadEditDeletePage.homeButtonToMainMenu.click();
     }
+
+    @When("clicks delete button")
+    public void clicks_delete_button() {
+        // Write code here that turns the phrase above into concrete actions
+        uploadEditDeletePage.deleteFileButton.click();
+    }
+    @Then("file gets deleted")
+    public void file_gets_deleted() {
+        // Write code here that turns the phrase above into concrete actions
+        boolean isElementPresent = uploadEditDeletePage.isTest132FilePresent();
+        Assert.assertTrue(isElementPresent);
+
+    }
 }

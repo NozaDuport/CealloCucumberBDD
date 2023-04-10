@@ -16,3 +16,9 @@ Feature: User should be able to upload, create, move, edit and delete a file.
     And clicks Move of Copy
     And chooses Talk file and clicks Move to Talk button
     Then file is moved to Talk file
+
+  @wip2 @CEA10-344
+  Scenario: User should be able to delete any file.
+    When user clicks three dots of a file
+    And clicks delete button
+    Then file gets deleted
