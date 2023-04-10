@@ -5,7 +5,7 @@ Feature:Contacts module functionality
     Given User logged in successfully
     And the user is on contacts module page
 
-  @wip1
+
   Scenario Outline:User can create a new contact
     When the user clicks on new contact button
     And the user clicks on add new property option
@@ -15,7 +15,6 @@ Feature:Contacts module functionality
     And the user enters email "<email>"
     And the user enters address "<address>"
     And the user enters country "<country>"
-
     Then the user should display new created contact
 
     Examples:List of contacts
@@ -24,19 +23,19 @@ Feature:Contacts module functionality
       | Valentine Hopkins | 210-812-9597 |  | valentine@gmail.com | 775 W 17th St      | Poland  |
       | Calbares More     | 956-841-7216 |  | calbares@gmail.com  | 56 E7 Morehead St  | Spain   |
 
-
+  @wip1
   Scenario: User can see all the contacts as a list inside the middle column
-  and total number of the contacts near the “All Contacts” tab
+             and total number of the contacts near the “All Contacts” tab
     When user clicks all contacts button
-    Then the user should display all the contacts near the contacts tab
+    Then the user should display all the contacts inside the middle column and total number of contacts near the contacts tab
 
 
   Scenario: User can change the profile picture of any contact with a previously
-  uploaded picture by using “Choose from files” option
+            uploaded picture by using “Choose from files” option
     When the user clicks on one of the contacts in the contact list
     And the user clicks on change picture button placed on the profile picture
     And the user clicks chose from files file
-    And the user clicks on the picture that he/she wants to change
+    And the user clicks on the picture that he wants to change
     Then user should be displayed new profile picture in the contacts list
 
 
