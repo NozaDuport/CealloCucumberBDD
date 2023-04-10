@@ -29,7 +29,22 @@ public class CalendarPage {
     @FindBy (xpath = "//button[@class='datepicker-button-section__datepicker-label button datepicker-label']" )
     public WebElement dataPicker;
 
-    @FindBy(xpath = "//button[@class='button primary new-event']")
+    @FindBy(css = "button[class='button primary new-event']")
     public WebElement newEventBtn;
+
+    @FindBy(css = "input[placeholder='Event title']")
+    public WebElement eventTitle;
+
+    @FindBy (id = "allDay")
+    public WebElement allDayCheckBox;
+
+    @FindBy(linkText = "save")
+    public WebElement saveBtn;
+
+    @FindBy(xpath = "//table[@class='fc-scrollgrid-sync-table']/tbody/tr/td")
+    public List<WebElement> calendarTable;
+
+        @FindBy(className = "fc-event-title fc-sticky")
+    public List<WebElement> stickyNotes;
 
 }

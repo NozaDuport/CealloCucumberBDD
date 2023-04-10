@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -114,13 +115,28 @@ public class CalendarStepDefs {
     //Fourth scenario
     @When("User clicks on New event button under the Calendar module")
     public void userClicksOnNewEventButtonUnderTheCalendarModule() {
+        calendarPage.newEventBtn.click();
+    }
+
+    @And("User fills out the event form")
+    public void userFillsOutTheEventForm() {
+        calendarPage.eventTitle.sendKeys("Meeting with Alina");
+        calendarPage.allDayCheckBox.click();
     }
 
     @And("User saves an event in the calendar")
     public void userSavesAnEventInTheCalendar() {
+        calendarPage.saveBtn.click();
     }
 
     @Then("User should see it on the related day through the Monthly Calendar view")
     public void userShouldSeeItOnTheRelatedDayThroughTheMonthlyCalendarView() {
+        String expectedEvent = "Meeting with Alina";
+        for (WebElement currentEvent : calendarPage.calendarTable) {
+            System.out.println(currentEvent.getText());
+        }
+
     }
-}
+
+    }
+
