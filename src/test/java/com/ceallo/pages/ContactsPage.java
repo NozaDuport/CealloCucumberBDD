@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class ContactsPage {
     public ContactsPage() {
         PageFactory.initElements(Driver.getDriver(),this);
@@ -48,6 +50,18 @@ public class ContactsPage {
 
     @FindBy(id = "contact-fullname")
     public WebElement contactCheck;
+
+    @FindBy(xpath = "//span[@title='All contacts']")
+    public WebElement allContactsButton;
+
+
+    @FindBy(xpath = "(//div[@class='app-navigation-entry__utils'])[1]")
+    public WebElement contactsCount;
+
+
+    @FindBy(xpath = "(//div[@class='vue-recycle-scroller__item-view'])")
+    public List<WebElement> allContacts;
+
 
 
 }
