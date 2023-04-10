@@ -22,6 +22,9 @@ public class ProfileSettingsPage {
     @FindBy (xpath = "//label[text()='Phone number']")
     public WebElement phoneNumberTitle;
 
+    @FindBy(xpath = "//input[@id='displayname']")
+    public WebElement fullNameInputBox;
+
 
 
 
