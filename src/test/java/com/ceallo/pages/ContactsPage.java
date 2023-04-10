@@ -24,13 +24,13 @@ public class ContactsPage {
     @FindBy(xpath = "(//input[@type='text'])[6]")
     public WebElement name;
 
-    @FindBy(css = "input[inputmode='tel']")
+    @FindBy(xpath = "(//input[@inputmode='tel'])[1]")
     public WebElement phoneBox;
 
     @FindBy(css = "input[inputmode='email']")
     public WebElement emailBox;
 
-    @FindBy(xpath = "(//input[@type='text'])[11]")
+    @FindBy(xpath = "(//input[@type='text'])[16]")
     public WebElement addressBox;
 
     @FindBy(xpath = "//div[@class='property-masonry']//div[3]//input[1]")
@@ -42,7 +42,7 @@ public class ContactsPage {
     @FindBy(xpath = "(//input[@type='text'])[15]")
     public WebElement stateBox;
 
-    @FindBy(xpath = "(//input[@type='text'])[16]")
+    @FindBy(xpath = "(//input[@type='text'])[21]")
     public WebElement countryBox;
 
 
