@@ -35,10 +35,11 @@ public class CalendarPage {
     @FindBy(css = "input[placeholder='Event title']")
     public WebElement eventTitle;
 
-    @FindBy (id = "allDay")
-    public List<WebElement> allDayCheckBox;
+    @FindBy (xpath = "input[@id='allDay']")
+    public WebElement allDayCheckBox;
 
-    @FindBy(className = "primary")
+
+    @FindBy(xpath = "//button[normalize-space(text())='Save']")
     public WebElement saveBtn;
 
     @FindBy(xpath = "//table[@class='fc-scrollgrid-sync-table']/tbody/tr/td")

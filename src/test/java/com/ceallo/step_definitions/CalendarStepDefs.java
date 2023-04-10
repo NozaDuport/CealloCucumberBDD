@@ -128,7 +128,6 @@ public class CalendarStepDefs {
 
     @And("User saves an event in the calendar")
     public void userSavesAnEventInTheCalendar() {
-        BrowserUtils.waitFor(10);
         JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
         executor.executeScript("arguments[0].click();", calendarPage.saveBtn);
         BrowserUtils.waitFor(10);
@@ -136,12 +135,10 @@ public class CalendarStepDefs {
 
     @Then("User should see it on the related day through the Monthly Calendar view")
     public void userShouldSeeItOnTheRelatedDayThroughTheMonthlyCalendarView() {
-        String expectedEvent = "Meeting with Alina";
-        for (WebElement currentEvent : calendarPage.calendarTable) {
-            System.out.println(currentEvent.getText());
-        }
-
-    }
-
-    }
-
+        for (WebElement loop : calendarPage.calendarTable) {
+            String currentEvent = loop.getText();
+            if (currentEvent.contains("Meeting with Alina")) {
+                System.out.println(currentEvent);
+            Assert.assertTrue(currentEvent.contains("Meeting with Alina"));
+            }
+        }}}
