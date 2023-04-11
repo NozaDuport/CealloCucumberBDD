@@ -1,4 +1,5 @@
-Feature:Contacts module functionality
+@adem
+  Feature:Contacts module functionality
   As a user, I should be able to create a new contact and edit/delete any contact under Contacts module
 
   Background:
@@ -23,7 +24,7 @@ Feature:Contacts module functionality
       | Valentine Hopkins | 210-812-9597 |  | valentine@gmail.com | 775 W 17th St      | Poland  |
       | Calbares More     | 956-841-7216 |  | calbares@gmail.com  | 56 E7 Morehead St  | Spain   |
 
-  @wip1
+
   Scenario: User can see all the contacts as a list inside the middle column
              and total number of the contacts near the “All Contacts” tab
     When user clicks all contacts button
@@ -36,6 +37,7 @@ Feature:Contacts module functionality
     And the user clicks on change picture button placed on the profile picture
     And the user clicks chose from files file
     And the user clicks on the picture that he wants to change
+    And the user clicks on the choose button
     Then user should be displayed new profile picture in the contacts list
 
 
