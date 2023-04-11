@@ -19,7 +19,7 @@ Feature: As a user, I should be able to see Daily-Weekly-Monthly calendar view a
     Scenario: User can display monthly calendar view
       When  User chooses Monthly view from dropdown menu
       Then  Monthly calendar view should be displayed
-  @wip
+
     Scenario: User can create a new event under the Calendar module and see it on the related day
     through the Monthly Calendar view
       When  User clicks on New event button under the Calendar module
