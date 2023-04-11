@@ -7,7 +7,7 @@ Feature:As a user, I should be able to change profile info settings under the Pr
     When User on the profile settings page
     Then User should be able to see fullName, email and phoneNumber
 
-  @CEA10-351 @wip
+  @CEA10-351
   Scenario Outline:  User can change "Full name" info under Profile Settings page
     Given User logged in successfully
     When User on the profile settings page
@@ -21,3 +21,11 @@ Feature:As a user, I should be able to change profile info settings under the Pr
       | Cristiano Ronaldo | Cristiano Ronaldo |
       | Karim Benzema | Karim Benzema |
       | Joaquin O'Keefe | Joaquin O'Keefe |
+
+  @CEA10-353 @wip
+  Scenario: User can make "Phone number" info as private under Profile Settings page
+    Given User logged in successfully
+    When User on the profile settings page
+    And User clicks phone number privacy list
+    And User selects phone number private option
+    Then user should be able to see private icon next to phone number
