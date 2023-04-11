@@ -31,6 +31,14 @@ public class ProfileSettingsPage {
     @FindBy(xpath = "//ul//li//span[@class='icon icon-password']")
     public WebElement phoneNumberPrivateSelectButton;
 
+    @FindBy(xpath = "//*[@id=\"localeexample\"]//span[2]")
+    public WebElement localTimeOnSettingsPage;
+
+
+    @FindBy(xpath = "//*[@id=\"localeexample\"]//span[2]")
+    public WebElement timeElement;
+
+
 
 
 }
