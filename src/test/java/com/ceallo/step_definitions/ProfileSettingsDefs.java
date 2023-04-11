@@ -10,6 +10,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import java.text.SimpleDateFormat;
@@ -79,6 +82,45 @@ public class ProfileSettingsDefs {
 
         Assert.assertEquals("icon-federation-menu icon-password",
                 profileSettingsPage.phoneNumberPrivateOrPublicList.getAttribute("class"));
+
+    }
+
+    @Then("User should be able to see the current local time under the Local dropdown")
+    public void user_should_be_able_to_see_the_current_local_time_under_the_local_dropdown() {
+
+        String timeText = profileSettingsPage.timeElement.getText();
+
+        // Convert the text value to a LocalTime object
+        LocalTime pageTime = LocalTime.parse(timeText);
+
+        // Convert the LocalTime object to String
+        String pageTimeInStringFormat = pageTime.toString();
+
+        // Get the current time from the local machine
+        LocalTime currentTime = LocalTime.now();
+
+        // Create a formatter for the desired time format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        // Format the current time using the formatter
+        String formattedTime = currentTime.format(formatter);
+
+        BrowserUtils.sleep(2);
+
+
+        Assert.assertEquals(pageTimeInStringFormat,formattedTime);
+
+    /*
+
+        //if we want to see the results
+
+        System.out.println("pageTimeInStringFormat = " + pageTimeInStringFormat);
+        System.out.println("currentTime = " + currentTime);
+        System.out.println("formattedTime = " + formattedTime);
+
+      */
+
+
 
     }
 

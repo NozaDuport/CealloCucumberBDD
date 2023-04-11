@@ -35,6 +35,10 @@ public class ProfileSettingsPage {
     public WebElement localTimeOnSettingsPage;
 
 
+    @FindBy(xpath = "//*[@id=\"localeexample\"]//span[2]")
+    public WebElement timeElement;
+
+
 
 
 }
