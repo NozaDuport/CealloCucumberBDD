@@ -26,8 +26,7 @@ public class TalkStepDefs {
 
     @When("User types conversation name")
     public void user_types_conversation_name() {
-        String groupName = faker.animal().name().toString() + "Group";
-        talkPage.conversationName_InputBox.sendKeys(groupName);
+        talkPage.conversationName_InputBox.sendKeys(talkPage.conversationName);
     }
 
     @When("User clicks on Add participants button")
@@ -49,6 +48,20 @@ public class TalkStepDefs {
     @Then("User sees You created the conversation text displayed")
     public void user_sees_You_created_the_conversation_text_displayed() {
         Assert.assertTrue(talkPage.youCreatedTheConversation_Text.isDisplayed());
+    }
+
+    @When("User clicks any conversation group")
+    public void user_clicks_any_conversation_group() {
+        talkPage.conversationTab.click();
+    }
+    @Then("User clicks participants tab")
+    public void User_clicks_participants_tab() {
+        talkPage.participantsTab.click();
+    }
+
+    @Then("User sees participants on right hand menu")
+    public void user_sees_participants_on_right_hand_menu() {
+        Assert.assertEquals(talkPage.firstParticipantInParticipantTab.getText(),talkPage.addEmployee1AsParicipant.getText());
     }
 
 }

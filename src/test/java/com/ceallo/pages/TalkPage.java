@@ -13,6 +13,8 @@ public class TalkPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public String conversationName = "TestGroup1";
+
     @FindBy(xpath = "(//li[@data-id='spreed']/a)[1]")
     public WebElement talkModule_Btn;
 
@@ -31,10 +33,10 @@ public class TalkPage {
     @FindBy(xpath = "//div[@class='participants-search-results scrollable']//ul")
     public List<WebElement> userList;
 
-    @FindBy(xpath = "//div[@class='participants-search-results scrollable']//ul/li//span[.='Employee1']")
+    @FindBy(xpath = "//span[.='Employee1']")
     public WebElement addEmployee1AsParicipant;
 
-    @FindBy(xpath = "//div[@class='participants-search-results scrollable']//ul/li//span[.='Employee10']")
+    @FindBy(xpath = "//span[.='Employee10']")
     public WebElement addEmployee10AsParicipant;
 
     @FindBy(xpath = "//button[contains(.,'Create conversation')]")
@@ -42,6 +44,18 @@ public class TalkPage {
 
     @FindBy(xpath = "//div[.='You created the conversation']")
     public WebElement youCreatedTheConversation_Text;
+
+    @FindBy(css = "a[id='participants']")
+    public WebElement participantsTab;
+
+    @FindBy(xpath = "//a[@aria-label='Conversation, TestGroup1']")
+    public WebElement conversationTab;
+
+    @FindBy(xpath = "(//span[@class='participant-row__user-name'])[2]")
+    public WebElement firstParticipantInParticipantTab;
+
+
+
 
 
 }
