@@ -21,3 +21,10 @@ Feature:
     And User click checkmark button to save and create a new list of tasks
     Then User should see "the name of new list" in the right-hand menu
 
+  @TC2
+  Scenario: User can create a new task
+    When User click "Tasks" link sign in the header
+    Then User should navigate to tasks page
+    And User see "Add a task to" input box under the header
+    And User write "New Task" and push the enter to add new task
+    And User should be able to see "New Task" at the bottom of tasks list

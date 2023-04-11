@@ -27,6 +27,11 @@ public class TasksPage {
     @FindBy(xpath = "//ul[@class='app-navigation__list']/div/li/a/span")
     public List<WebElement> listOfTasks;
 
+    @FindBy(xpath = "//input[contains(@placeholder,'Add a task to')]")
+    public WebElement addTaskInputBox;
+
+    @FindBy(xpath = "//div[@class='task-info']//span")
+    public List<WebElement> lastTaskInTheList;
 
 
 }
