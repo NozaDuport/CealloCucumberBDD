@@ -5,8 +5,13 @@ import com.ceallo.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class UploadEditDeleteStepDefs {
 
@@ -76,5 +81,12 @@ public class UploadEditDeleteStepDefs {
         boolean isElementPresent = uploadEditDeletePage.isTest132FilePresent();
         Assert.assertTrue(isElementPresent);
 
+    }
+
+    @Then("user can see total number of files and folders")
+    public void user_can_see_total_number_of_files_and_folders() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(uploadEditDeletePage.totalNumberOfFilesAndFoldersMethod()));
     }
 }

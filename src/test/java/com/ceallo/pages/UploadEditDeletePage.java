@@ -62,4 +62,10 @@ public class UploadEditDeletePage {
         return test123FileList.size() > 0;
     }
 
+    @FindBy(xpath ="//span[@class='info']")
+    private WebElement totalNumberOfFilesAndFolders;
+
+    public WebElement totalNumberOfFilesAndFoldersMethod() {
+        return totalNumberOfFilesAndFolders;
+    }
 }
