@@ -13,7 +13,7 @@ public class ContactsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    // new contact button
+    // scenario 1
     @FindBy(id = "new-contact-button")
     public WebElement newContactButton;
 
@@ -35,15 +35,6 @@ public class ContactsPage {
     @FindBy(xpath = "(//input[@type='text'])[16]")
     public WebElement addressBox;
 
-    @FindBy(xpath = "//div[@class='property-masonry']//div[3]//input[1]")
-    public WebElement postcodeBox;
-
-    @FindBy(xpath = "(//input[@type='text'])[14]")
-    public WebElement cityBox;
-
-    @FindBy(xpath = "(//input[@type='text'])[15]")
-    public WebElement stateBox;
-
     @FindBy(xpath = "(//input[@type='text'])[21]")
     public WebElement countryBox;
 
@@ -51,6 +42,7 @@ public class ContactsPage {
     @FindBy(id = "contact-fullname")
     public WebElement contactCheck;
 
+    // scenario 2
     @FindBy(xpath = "//span[@title='All contacts']")
     public WebElement allContactsButton;
 
@@ -61,6 +53,35 @@ public class ContactsPage {
 
     @FindBy(xpath = "(//div[@class='vue-recycle-scroller__item-view'])")
     public List<WebElement> allContacts;
+
+    //scenario 3
+    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-picture-force-white']")
+    public WebElement changePictureButton;
+
+    @FindBy(xpath = "//span[.='Choose from files']")
+    public WebElement choseFromFileButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Arten.jpg')]")
+    public WebElement choseAnyPicture;
+
+    @FindBy(css = "button[class='primary']")
+    public WebElement chooseButton;
+
+    @FindBy(xpath = "//div[@class='contact-header-avatar']")
+    public WebElement profileImage;
+
+    // scenario 4
+    @FindBy(xpath = "//div[@class='contact-header__actions']")
+    public WebElement threeDotsIcon;
+
+    @FindBy(xpath = "(//button[@class='action-button focusable'])[6]")
+    public WebElement deleteButton;
+
+    @FindBy(css = ".empty-content__title")
+    public WebElement noContactSelectedMessage;
+
+
+
 
 
 
