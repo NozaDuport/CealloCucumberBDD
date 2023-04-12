@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StatusPopup {
@@ -14,15 +13,12 @@ public class StatusPopup {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(css = "label[class$='icon-user-status-away']")
-    public WebElement away;
-
-    @FindBy(css = "label[class$='icon-user-status-dnd']")
-    public WebElement doNotDisturb;
-
-    @FindBy(css = "label[class$='icon-user-status-invisible']")
-    public WebElement invisible;
-    
+    public boolean timeOptionVerify(String timeOption, int j){
+        if(this.timeSetter.get(j).getAttribute("title").equalsIgnoreCase(timeOption)){
+            return true;
+        }else{
+        return false;}
+    }
 
     @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(1)")
     public WebElement divMeetingHour;
@@ -49,7 +45,7 @@ public class StatusPopup {
     public WebElement buttonClearStatusMessage;
 
     @FindBy(css = "input[maxlength='80']")
-    public WebElement input;
+    public WebElement inputStatusMessage;
 
     @FindBy(css = "button[class$='emoji-button']")
     public WebElement emojiSelectButton;
@@ -71,6 +67,22 @@ public class StatusPopup {
 
     @FindBy(xpath = "//div[@class='predefined-statuses-list']//div//span[2]")
     public List<WebElement> defaultStatusMessage;
+
+    @FindBy(xpath = "//div[@class='predefined-statuses-list']//div//span[3]")
+    public List<WebElement> defaultStatusMessageTime;
+
+    @FindBy(xpath = "//*[@class=\"name-parts\"]")
+    public List<WebElement> timeSetter;
+
+    @FindBy(xpath = "//*[@class=\"multiselect__single\"]")
+    public WebElement timeSetSelection;
+
+    @FindBy(xpath = "//div[@class=\"clear-at-select\"]//div//div[2]//span")
+    public WebElement selectedTime;
+
+
+
+
 
 
 
