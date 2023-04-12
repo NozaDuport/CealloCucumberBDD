@@ -6,6 +6,10 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class TasksStepDefs {
 
@@ -47,4 +51,22 @@ public class TasksStepDefs {
         System.out.println("tasksPage.listOfTasks.get(tasksPage.listOfTasks.size()-1).getText() = " + tasksPage.listOfTasks.get(tasksPage.listOfTasks.size() - 1).getText());
         Assert.assertTrue(tasksPage.listOfTasks.get(tasksPage.listOfTasks.size()-1).getText().contains(nameOfNewList));
     }
+    
+    // Second scenario
+
+    @Then("User see {string} input box under the header")
+    public void user_see_input_box_under_the_header(String nameOfInputBox) {
+        BrowserUtils.verifyElementDisplayed(tasksPage.addTaskInputBox);
+    }
+    @Then("User write {string} and push the enter to add new task")
+    public void user_write_and_push_the_enter_to_add_new_task(String nameOfTask) {
+        tasksPage.addTaskInputBox.sendKeys(nameOfTask+ Keys.ENTER);
+    }
+    @Then("User should be able to see {string} at the bottom of tasks list")
+    public void user_should_be_able_to_see_at_the_bottom_of_tasks_list(String nameOfTask) {
+        BrowserUtils.waitFor(2);
+        List<WebElement> tasksList = tasksPage.lastTaskInTheList;
+        Assert.assertTrue(tasksList.get(tasksList.size()-1).getText().equals(nameOfTask));
+    }
+    
 }
