@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -97,23 +98,20 @@ public class ContactsStepDefs {
     public void the_User_Should_Display_All_The_Contacts_Inside_The_Middle_Column_And_Total_Number_Of_contacts_Near_the_contacts_Tab() {
 
 
-       List<String> allContactsNames= Arrays.asList("Adem","Arten","Valentine","calbares");
 
+        // displaying all the contacts inside the middle column
         List<WebElement> actualListOfContacts = contacts.allContacts;
+
         for (WebElement actualListOfContact : actualListOfContacts) {
-            if (actualListOfContact.equals(allContactsNames)) {
-                Assert.assertEquals(actualListOfContact.getText(), allContactsNames);
-            }
+            Assert.assertTrue(actualListOfContact.isDisplayed());
 
         }
-
-
+        // display total number of contacts near the contacts tab
         String expectedCount = contacts.contactsCount.getText();
 
         int actualContactsCount = actualListOfContacts.size();
         int expectedContactsCount = Integer.parseInt(expectedCount);
 
-        System.out.println(actualListOfContacts.size());
         Assert.assertEquals(expectedContactsCount, actualContactsCount);
 
 
@@ -123,43 +121,64 @@ public class ContactsStepDefs {
     // Third Scenario
     @When("the user clicks on one of the contacts in the contact list")
     public void the_user_clicks_on_one_of_the_contacts_in_the_contact_list() {
+        BrowserUtils.sleep(2);
+        List<WebElement> actualListOfContacts = contacts.allContacts;
+        WebElement choseSomeone = actualListOfContacts.get(1);
+        choseSomeone.click();
 
     }
 
     @When("the user clicks on change picture button placed on the profile picture")
     public void the_user_clicks_on_change_picture_button_placed_on_the_profile_picture() {
 
+        contacts.changePictureButton.click();
+        BrowserUtils.sleep(4);
+
     }
 
     @When("the user clicks chose from files file")
     public void the_user_clicks_chose_from_files_file() {
 
+        contacts.choseFromFileButton.click();
+        BrowserUtils.sleep(4);
     }
 
     @When("the user clicks on the picture that he wants to change")
     public void the_user_clicks_on_the_picture_that_he_wants_to_change() {
 
+        contacts.choseAnyPicture.click();
+        BrowserUtils.sleep(4);
+    }
+
+    @And("the user clicks on the choose button")
+    public void the_User_Clicks_On_The_Choose_Button() {
+        contacts.chooseButton.click();
+        BrowserUtils.sleep(4);
     }
 
     @Then("user should be displayed new profile picture in the contacts list")
     public void user_should_be_displayed_new_profile_picture_in_the_contacts_list() {
-
+        Assert.assertTrue(contacts.profileImage.isDisplayed());
     }
 
     // fourth scenario
     @When("the user clicks on three dots button left on the page")
     public void the_user_clicks_on_three_dots_button_left_on_the_page() {
 
+        contacts.threeDotsIcon.click();
+        BrowserUtils.sleep(4);
     }
 
     @When("the user clicks on the delete button")
     public void the_user_clicks_on_the_delete_button() {
-
+        contacts.deleteButton.click();
+        BrowserUtils.sleep(4);
     }
 
     @Then("the user should delete the selected contact in the contacts list")
     public void the_user_should_delete_the_selected_contact_in_the_contacts_list() {
-
+        Assert.assertTrue(contacts.noContactSelectedMessage.isDisplayed());
     }
+
 
 }
