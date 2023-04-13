@@ -54,6 +54,7 @@ public class TalkStepDefs {
     public void user_clicks_any_conversation_group() {
         talkPage.conversationTab.click();
     }
+
     @Then("User clicks participants tab")
     public void User_clicks_participants_tab() {
         talkPage.participantsTab.click();
@@ -61,7 +62,20 @@ public class TalkStepDefs {
 
     @Then("User sees participants on right hand menu")
     public void user_sees_participants_on_right_hand_menu() {
-        Assert.assertEquals(talkPage.firstParticipantInParticipantTab.getText(),talkPage.addEmployee1AsParicipant.getText());
+        Assert.assertEquals(talkPage.firstParticipantInParticipantTab.getText(), talkPage.addEmployee1AsParicipant.getText());
+    }
+
+    @When("User clicks 3dots and clicks remove participant")
+    public void user_clicks_3dots_and_clicks_remove_participant() {
+        talkPage.participant3DotsMenu.click();
+        talkPage.removeParticipantBtn.click();
+    }
+
+    @Then("User should see {string} message")
+    public void user_should_see_message(String removeText) {
+        removeText = "You removed";
+        Assert.assertEquals(talkPage.removeMessage.getText().substring(0,11), removeText);
+
     }
 
 }

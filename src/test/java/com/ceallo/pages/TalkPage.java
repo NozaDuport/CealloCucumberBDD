@@ -54,6 +54,15 @@ public class TalkPage {
     @FindBy(xpath = "(//span[@class='participant-row__user-name'])[2]")
     public WebElement firstParticipantInParticipantTab;
 
+    @FindBy(xpath = "//div[normalize-space(text())='You removed']")
+    public WebElement removeMessage;
+
+    @FindBy(xpath = "(//button[@aria-label='Participant settings'])[1]")
+    public WebElement participant3DotsMenu;
+
+    @FindBy(xpath = "//span[.='Remove participant']")
+    public WebElement removeParticipantBtn;
+
 
 
 
