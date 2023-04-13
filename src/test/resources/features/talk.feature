@@ -35,3 +35,10 @@ Feature:  As a user, I should be able to create/delete conversation groups
     And User clicks 3dots and clicks remove participant
     Then User should see "You removed" message
 
+  @CEA10-399
+    Scenario: User can send messages by typing inside the inputbox at the bottom
+      When User goes Talk page
+      And User clicks first conversation icon
+      And User types message in message input box
+      Then User sees message appears in conversation
+

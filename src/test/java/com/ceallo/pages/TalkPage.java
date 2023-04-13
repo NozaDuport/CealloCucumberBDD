@@ -63,6 +63,15 @@ public class TalkPage {
     @FindBy(xpath = "//span[.='Remove participant']")
     public WebElement removeParticipantBtn;
 
+    @FindBy(xpath = "(//div[@class='conversation-icon'])[1]")
+    public WebElement conversationIcon;
+
+    @FindBy(css = "div[role='textbox']")
+    public WebElement messageInputBox;
+
+    @FindBy(xpath = "//div[.='Hello World']")
+    public WebElement sentMessage;
+
 
 
 

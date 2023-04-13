@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class TalkStepDefs {
@@ -74,8 +75,22 @@ public class TalkStepDefs {
     @Then("User should see {string} message")
     public void user_should_see_message(String removeText) {
         removeText = "You removed";
-        Assert.assertEquals(talkPage.removeMessage.getText().substring(0,11), removeText);
+        Assert.assertEquals(talkPage.removeMessage.getText().substring(0, 11), removeText);
+    }
 
+    @When("User clicks first conversation icon")
+    public void user_clicks_first_conversation_icon() {
+        talkPage.conversationIcon.click();
+    }
+
+    @When("User types message in message input box")
+    public void user_types_message_in_message_input_box() {
+        talkPage.messageInputBox.sendKeys("Hello World", Keys.ENTER);
+    }
+
+    @Then("User sees message appears in conversation")
+    public void user_sees_message_appears_in_conversation() {
+        Assert.assertTrue(talkPage.sentMessage.isDisplayed());
     }
 
 }
