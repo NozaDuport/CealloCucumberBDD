@@ -34,3 +34,4 @@ Feature:  As a user, I should be able to create/delete conversation groups
     And User clicks participants tab
     And User clicks 3dots and clicks remove participant
     Then User should see "You removed" message
+
