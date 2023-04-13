@@ -83,6 +83,7 @@ public class TalkStepDefs {
         talkPage.conversationIcon.click();
     }
 
+
     @When("User types message in message input box")
     public void user_types_message_in_message_input_box() {
         talkPage.messageInputBox.sendKeys("Hello World", Keys.ENTER);
