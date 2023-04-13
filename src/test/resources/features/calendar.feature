@@ -24,7 +24,7 @@ Feature: As a user, I should be able to see Daily-Weekly-Monthly calendar view a
     @CEA10-361
     Scenario: Verify user can create a new event under the Calendar module and see it on the related day
     through the Monthly Calendar view
-
+    
       When  User clicks on New event button under the Calendar module
       And   User fills out the event form
       And   User saves an event in the calendar

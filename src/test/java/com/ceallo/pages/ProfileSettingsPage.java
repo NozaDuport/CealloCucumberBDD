@@ -22,6 +22,22 @@ public class ProfileSettingsPage {
     @FindBy (xpath = "//label[text()='Phone number']")
     public WebElement phoneNumberTitle;
 
+    @FindBy(xpath = "//input[@id='displayname']")
+    public WebElement fullNameInputBox;
+
+    @FindBy(xpath = "//label[text()='Phone number']/..//div//span")
+    public WebElement phoneNumberPrivateOrPublicList;
+
+    @FindBy(xpath = "//ul//li//span[@class='icon icon-password']")
+    public WebElement phoneNumberPrivateSelectButton;
+
+    @FindBy(xpath = "//*[@id=\"localeexample\"]//span[2]")
+    public WebElement localTimeOnSettingsPage;
+
+
+    @FindBy(xpath = "//*[@id=\"localeexample\"]//span[2]")
+    public WebElement timeElement;
+
 
 
 
