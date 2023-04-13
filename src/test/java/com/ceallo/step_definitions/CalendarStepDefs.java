@@ -38,7 +38,7 @@ public class CalendarStepDefs {
     public void dailyCalendarViewShouldBeDisplayed() {
         String expectedTitle = calendarPage.dayTitle.getText();
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E M/d/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E d/M/YYYY");
         String currentDate = date.format(formatter);
         System.out.println(currentDate);
         System.out.println(expectedTitle);
@@ -55,40 +55,40 @@ public class CalendarStepDefs {
     @Then("Weekly calendar view should be displayed")
     public void calendarShouldBeDisplayed() {
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E M/d/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E d/M/YYYY");
         String currentDate = date.format(formatter);
         if (currentDate.contains("Mon")) {
-            String monday = calendarPage.daysOfWeek.get(2).getText();
+            String monday = calendarPage.daysOfWeek.get(1).getText();
             System.out.println(currentDate);
             System.out.println(monday);
             Assert.assertEquals(currentDate, monday);
         } else if (currentDate.contains("Tue")) {
-            String tuesday = calendarPage.daysOfWeek.get(3).getText();
+            String tuesday = calendarPage.daysOfWeek.get(2).getText();
             System.out.println(currentDate);
             System.out.println(tuesday);
             Assert.assertEquals(currentDate, tuesday);
         } else if (currentDate.contains("Wed")) {
-            String wednesday = calendarPage.daysOfWeek.get(4).getText();
+            String wednesday = calendarPage.daysOfWeek.get(3).getText();
             System.out.println(currentDate);
             System.out.println(wednesday);
             Assert.assertEquals(currentDate, wednesday);
         } else if (currentDate.contains("Thu")) {
-            String thursday = calendarPage.daysOfWeek.get(5).getText();
+            String thursday = calendarPage.daysOfWeek.get(4).getText();
             System.out.println(currentDate);
             System.out.println(thursday);
             Assert.assertEquals(currentDate, thursday);
         } else if (currentDate.contains("Fri")) {
-            String friday = calendarPage.daysOfWeek.get(6).getText();
+            String friday = calendarPage.daysOfWeek.get(5).getText();
             System.out.println(currentDate);
             System.out.println(friday);
             Assert.assertEquals(currentDate, friday);
         } else if (currentDate.contains("Sat")) {
-            String saturday = calendarPage.daysOfWeek.get(7).getText();
+            String saturday = calendarPage.daysOfWeek.get(6).getText();
             System.out.println(currentDate);
             System.out.println(saturday);
             Assert.assertEquals(currentDate, saturday);
         } else if (currentDate.contains("Sun")) {
-            String sunday = calendarPage.daysOfWeek.get(1).getText();
+            String sunday = calendarPage.daysOfWeek.get(7).getText();
             System.out.println(currentDate);
             System.out.println(sunday);
             Assert.assertEquals(currentDate, sunday);
