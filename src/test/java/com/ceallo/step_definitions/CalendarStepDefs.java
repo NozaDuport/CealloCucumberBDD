@@ -2,11 +2,14 @@ package com.ceallo.step_definitions;
 
 import com.ceallo.pages.BasePage;
 import com.ceallo.pages.CalendarPage;
+import com.ceallo.utilities.BrowserUtils;
 import com.ceallo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,10 +36,10 @@ public class CalendarStepDefs {
 
     @Then("Daily calendar view should be displayed")
     public void dailyCalendarViewShouldBeDisplayed() {
-        String expectedTitle = Driver.getDriver().getTitle();
+        String expectedTitle = calendarPage.dayTitle.getText();
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM YYYY");
-        String currentDate = date.format(formatter) + " - Calendar - Ceallo - QA";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E d/M/YYYY");
+        String currentDate = date.format(formatter);
         System.out.println(currentDate);
         System.out.println(expectedTitle);
         Assert.assertEquals(expectedTitle, currentDate);
@@ -65,10 +68,10 @@ public class CalendarStepDefs {
             System.out.println(tuesday);
             Assert.assertEquals(currentDate, tuesday);
         } else if (currentDate.contains("Wed")) {
-        String wednesday = calendarPage.daysOfWeek.get(3).getText();
-        System.out.println(currentDate);
-        System.out.println(wednesday);
-        Assert.assertEquals(currentDate, wednesday);
+            String wednesday = calendarPage.daysOfWeek.get(3).getText();
+            System.out.println(currentDate);
+            System.out.println(wednesday);
+            Assert.assertEquals(currentDate, wednesday);
         } else if (currentDate.contains("Thu")) {
             String thursday = calendarPage.daysOfWeek.get(4).getText();
             System.out.println(currentDate);
@@ -114,13 +117,59 @@ public class CalendarStepDefs {
     //Fourth scenario
     @When("User clicks on New event button under the Calendar module")
     public void userClicksOnNewEventButtonUnderTheCalendarModule() {
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", calendarPage.newEventBtn);
+    }
+
+    @And("User fills out the event form")
+    public void userFillsOutTheEventForm() {
+        calendarPage.eventTitle.sendKeys("Meeting with Alina");
     }
 
     @And("User saves an event in the calendar")
     public void userSavesAnEventInTheCalendar() {
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", calendarPage.saveBtn);
+        BrowserUtils.waitFor(10);
     }
 
     @Then("User should see it on the related day through the Monthly Calendar view")
     public void userShouldSeeItOnTheRelatedDayThroughTheMonthlyCalendarView() {
+        for (WebElement loop : calendarPage.calendarTable) {
+            String currentEvent = loop.getText();
+            if (currentEvent.contains("Meeting with Alina")) {
+                System.out.println(currentEvent);
+            Assert.assertTrue(currentEvent.contains("Meeting with Alina"));
+            }
+        }
     }
-}
+
+    @When("User navigates to specific calendar event")
+    public void userNavigatesToSpecificCalendarEvent() {
+        BrowserUtils.waitForVisibility(calendarPage.stickyNote.get(0), 50);
+        for (WebElement calendarLoop : calendarPage.calendarTable) {
+            BrowserUtils.waitForPageToLoad(30);
+            String currentEvent = calendarLoop.getText();
+            if (currentEvent.contains("Meeting with Alina")){
+                calendarPage.stickyNote.get(0).click();
+            }
+        }
+    }
+
+    @And("User clicks on delete button from the dropdown menu inside the sidebar")
+    public void userClicksOnDeleteButtonFromTheDropdownMenuInsideTheSidebar() {
+        calendarPage.moreBtn.click();
+        calendarPage.threeDot.click();
+        calendarPage.deleteBtn.click();
+    }
+
+    @Then("Event should be removed from the calendar view")
+    public void eventShouldBeRemovedFromTheCalendarView() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtils.waitFor(10);
+        for (WebElement calendarLoop : calendarPage.calendarTable) {
+            BrowserUtils.waitForPageToLoad(30);
+            String currentEvent = calendarLoop.getText();
+            Assert.assertTrue(!currentEvent.contains("Meeting with Alina"));
+
+}}}
