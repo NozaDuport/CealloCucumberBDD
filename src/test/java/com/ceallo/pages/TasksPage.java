@@ -30,8 +30,18 @@ public class TasksPage {
     @FindBy(xpath = "//input[contains(@placeholder,'Add a task to')]")
     public WebElement addTaskInputBox;
 
-    @FindBy(xpath = "//div[@class='task-info']//span")
-    public List<WebElement> lastTaskInTheList;
+    @FindBy(xpath = "//div[@class='task-list']/div/ol/li//span[contains(text(),'Task')]")
+    public List<WebElement> tasksInTheList;
 
+    @FindBy(xpath = "//span[@title='Completed']")
+    public WebElement completedLink;
+    @FindBy(xpath = "//span[@title='Important']")
+    public WebElement importantLink;
+
+    @FindBy(xpath = "//ol[@calendar-id='my-tasks']/li//div[@class='title']/span")
+    public List<WebElement> listOfCompletedTasks;
+
+    @FindBy(xpath = "//li[@id='collection_current']/div/div")
+    public WebElement numberNextToCurrentTab;
 
 }
