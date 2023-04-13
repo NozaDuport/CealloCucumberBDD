@@ -6,8 +6,12 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TalkStepDefs {
 
@@ -94,4 +98,30 @@ public class TalkStepDefs {
         Assert.assertTrue(talkPage.sentMessage.isDisplayed());
     }
 
+    @When("User types conversation name2")
+    public void user_types_conversation_name2() {
+        talkPage.conversationName_InputBox.sendKeys(talkPage.conversationName2);
+    }
+
+    @When("User clicks first conversation 3dots menu")
+    public void user_clicks_first_conversation_3dots_menu() throws InterruptedException {
+        Thread.sleep(5000);
+        talkPage.conversations3DotsMenu.click();
+    }
+
+    @When("User clicks on delete conversation button")
+    public void user_clicks_on_delete_conversation_button() {
+        talkPage.deleteConversationBtn.click();
+    }
+
+    @When("User clicks Yes button")
+    public void user_clicks_yes_button() {
+        talkPage.yesBtn.click();
+    }
+
+    @Then("User does not see conversation name on conversations list")
+    public void user_does_not_see_conversation_name_on_conversations_list() {
+
+        Assert.assertFalse(talkPage.conversationList.contains(talkPage.firstConversation.getText()));
+    }
 }
