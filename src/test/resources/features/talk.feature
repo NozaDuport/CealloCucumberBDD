@@ -22,3 +22,16 @@ Feature:  As a user, I should be able to create/delete conversation groups
     And User clicks any conversation group
     And User clicks participants tab
     Then User sees participants on right hand menu
+
+  @CEA10-393
+  Scenario: User can remove any participant from the conversation as being moderator
+    When User goes Talk page
+    And User clicks on plus icon
+    And User types conversation name
+    And User clicks on Add participants button
+    And User choose users to add as participants
+    And User clicks Create conversation button
+    And User clicks participants tab
+    And User clicks 3dots and clicks remove participant
+    Then User should see "You removed" message
+
