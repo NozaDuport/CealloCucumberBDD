@@ -35,3 +35,30 @@ Feature:  As a user, I should be able to create/delete conversation groups
     And User clicks 3dots and clicks remove participant
     Then User should see "You removed" message
 
+  @CEA10-399
+  Scenario: User can send messages by typing inside the inputbox at the bottom
+    When User goes Talk page
+    And User clicks first conversation icon
+    And User types message in message input box
+    Then User sees message appears in conversation
+
+  @CEA10-401
+  Scenario: User can delete any group conversation previously created
+    When User goes Talk page
+    And User clicks on plus icon
+    And User types conversation name2
+    And User clicks on Add participants button
+    And User choose users to add as participants
+    And User clicks Create conversation button
+    And User clicks first conversation 3dots menu
+    And User clicks on delete conversation button
+    And User clicks Yes button
+    Then User does not see conversation name on conversations list
+
+
+
+
+
+
+
+

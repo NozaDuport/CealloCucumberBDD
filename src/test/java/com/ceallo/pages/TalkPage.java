@@ -14,6 +14,8 @@ public class TalkPage {
     }
 
     public String conversationName = "TestGroup1";
+    public String conversationName2 = "TestGroup2";
+
 
     @FindBy(xpath = "(//li[@data-id='spreed']/a)[1]")
     public WebElement talkModule_Btn;
@@ -63,6 +65,32 @@ public class TalkPage {
     @FindBy(xpath = "//span[.='Remove participant']")
     public WebElement removeParticipantBtn;
 
+    @FindBy(xpath = "(//div[@class='conversation-icon'])[1]")
+    public WebElement conversationIcon;
+
+    @FindBy(css = "div[role='textbox']")
+    public WebElement messageInputBox;
+
+    @FindBy(xpath = "//div[.='Hello World']")
+    public WebElement sentMessage;
+
+    @FindBy(xpath = "(//div[@class='trigger'])[1]")
+    public WebElement conversations3DotsMenu;
+
+    @FindBy(xpath = "(//span[@class='acli__content__line-two__subtitle'])[1]")
+    public WebElement firstConversationDescription;
+
+    @FindBy(xpath = "//span[.='Delete conversation']")
+    public WebElement deleteConversationBtn;
+
+    @FindBy(xpath = "//button[.='Yes']")
+    public WebElement yesBtn;
+
+    @FindBy(xpath = "//ul[@class='conversations']/li")
+    public List<WebElement> conversationList;
+
+    @FindBy(xpath = "//ul[@class='conversations']/li//span[contains(.,'TestGroup2')]/../../../..")
+    public WebElement firstConversation;
 
 
 
