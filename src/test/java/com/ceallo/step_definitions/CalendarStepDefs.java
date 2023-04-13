@@ -36,10 +36,10 @@ public class CalendarStepDefs {
 
     @Then("Daily calendar view should be displayed")
     public void dailyCalendarViewShouldBeDisplayed() {
-        String expectedTitle = Driver.getDriver().getTitle();
+        String expectedTitle = calendarPage.dayTitle.getText();
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM YYYY");
-        String currentDate = date.format(formatter) + " - Calendar - Ceallo - QA";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E M/d/YYYY");
+        String currentDate = date.format(formatter);
         System.out.println(currentDate);
         System.out.println(expectedTitle);
         Assert.assertEquals(expectedTitle, currentDate);
@@ -55,40 +55,40 @@ public class CalendarStepDefs {
     @Then("Weekly calendar view should be displayed")
     public void calendarShouldBeDisplayed() {
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E d/M/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E M/d/YYYY");
         String currentDate = date.format(formatter);
         if (currentDate.contains("Mon")) {
-            String monday = calendarPage.daysOfWeek.get(1).getText();
+            String monday = calendarPage.daysOfWeek.get(2).getText();
             System.out.println(currentDate);
             System.out.println(monday);
             Assert.assertEquals(currentDate, monday);
         } else if (currentDate.contains("Tue")) {
-            String tuesday = calendarPage.daysOfWeek.get(2).getText();
+            String tuesday = calendarPage.daysOfWeek.get(3).getText();
             System.out.println(currentDate);
             System.out.println(tuesday);
             Assert.assertEquals(currentDate, tuesday);
         } else if (currentDate.contains("Wed")) {
-        String wednesday = calendarPage.daysOfWeek.get(3).getText();
-        System.out.println(currentDate);
-        System.out.println(wednesday);
-        Assert.assertEquals(currentDate, wednesday);
+            String wednesday = calendarPage.daysOfWeek.get(4).getText();
+            System.out.println(currentDate);
+            System.out.println(wednesday);
+            Assert.assertEquals(currentDate, wednesday);
         } else if (currentDate.contains("Thu")) {
-            String thursday = calendarPage.daysOfWeek.get(4).getText();
+            String thursday = calendarPage.daysOfWeek.get(5).getText();
             System.out.println(currentDate);
             System.out.println(thursday);
             Assert.assertEquals(currentDate, thursday);
         } else if (currentDate.contains("Fri")) {
-            String friday = calendarPage.daysOfWeek.get(5).getText();
+            String friday = calendarPage.daysOfWeek.get(6).getText();
             System.out.println(currentDate);
             System.out.println(friday);
             Assert.assertEquals(currentDate, friday);
         } else if (currentDate.contains("Sat")) {
-            String saturday = calendarPage.daysOfWeek.get(6).getText();
+            String saturday = calendarPage.daysOfWeek.get(7).getText();
             System.out.println(currentDate);
             System.out.println(saturday);
             Assert.assertEquals(currentDate, saturday);
         } else if (currentDate.contains("Sun")) {
-            String sunday = calendarPage.daysOfWeek.get(7).getText();
+            String sunday = calendarPage.daysOfWeek.get(1).getText();
             System.out.println(currentDate);
             System.out.println(sunday);
             Assert.assertEquals(currentDate, sunday);
@@ -141,4 +141,35 @@ public class CalendarStepDefs {
                 System.out.println(currentEvent);
             Assert.assertTrue(currentEvent.contains("Meeting with Alina"));
             }
-        }}}
+        }
+    }
+
+    @When("User navigates to specific calendar event")
+    public void userNavigatesToSpecificCalendarEvent() {
+        BrowserUtils.waitForVisibility(calendarPage.stickyNote.get(0), 50);
+        for (WebElement calendarLoop : calendarPage.calendarTable) {
+            BrowserUtils.waitForPageToLoad(30);
+            String currentEvent = calendarLoop.getText();
+            if (currentEvent.contains("Meeting with Alina")){
+                calendarPage.stickyNote.get(0).click();
+            }
+        }
+    }
+
+    @And("User clicks on delete button from the dropdown menu inside the sidebar")
+    public void userClicksOnDeleteButtonFromTheDropdownMenuInsideTheSidebar() {
+        calendarPage.moreBtn.click();
+        calendarPage.threeDot.click();
+        calendarPage.deleteBtn.click();
+    }
+
+    @Then("Event should be removed from the calendar view")
+    public void eventShouldBeRemovedFromTheCalendarView() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtils.waitFor(10);
+        for (WebElement calendarLoop : calendarPage.calendarTable) {
+            BrowserUtils.waitForPageToLoad(30);
+            String currentEvent = calendarLoop.getText();
+            Assert.assertTrue(!currentEvent.contains("Meeting with Alina"));
+
+}}}

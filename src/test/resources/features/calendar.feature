@@ -30,7 +30,11 @@ Feature: As a user, I should be able to see Daily-Weekly-Monthly calendar view a
       And   User saves an event in the calendar
       Then  User should see it on the related day through the Monthly Calendar view
 
-  @wip
+    @CEA10-363
     Scenario: Verify user can delete any event through the Monthly Calendar view by clicking on the event
     and then using “more” option
+      Given User chooses Monthly view from dropdown menu
+      When  User navigates to specific calendar event
+      And   User clicks on delete button from the dropdown menu inside the sidebar
+      Then  Event should be removed from the calendar view
 
