@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
         glue = "com/ceallo/step_definitions",
         dryRun = false,
         tags = ""
+
 )
 
 public class CukesRunner {
