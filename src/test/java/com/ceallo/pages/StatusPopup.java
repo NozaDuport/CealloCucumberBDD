@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class StatusPopup {
-    
+
     public StatusPopup(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -17,26 +17,9 @@ public class StatusPopup {
         if(this.timeSetter.get(j).getAttribute("title").equalsIgnoreCase(timeOption)){
             return true;
         }else{
-        return false;}
+            return false;}
     }
 
-    @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(1)")
-    public WebElement divMeetingHour;
-
-    @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(2)")
-    public WebElement divCommutingMinutes;
-
-    @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(3)")
-    public WebElement divWorkingRemotelyToday;
-
-    @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(4)")
-    public WebElement divOutSickToday;
-
-    @FindBy(css = "html > body > div:nth-of-type(8) > div:nth-of-type(2) > div > div > div:nth-of-type(5) > div:nth-of-type(5)")
-    public WebElement divVacationingDonClear;
-
-    @FindBy(css = "ul[class$='content']")
-    public List<WebElement> ulDonClearNutesHour;
 
     @FindBy(css = "button[class$='primary']")
     public WebElement buttonSetStatusMessage;
@@ -59,17 +42,14 @@ public class StatusPopup {
     @FindBy(xpath = "//div[@class='user-status-menu-item']//a")
     public WebElement statusButton;
 
-    @FindBy(xpath = "//div[@class='user-status-menu-item']//a//span")
-    public WebElement statusButtonTextElement;
+    @FindBy(xpath = "//div[@class='user-status-menu-item']//a[@class='user-status-menu-item__toggle']")
+    public WebElement statusButtonText;
 
     @FindBy(xpath = "//button[@rel='noreferrer noopener']")
     public WebElement popupCloseButton;
 
     @FindBy(xpath = "//div[@class='predefined-statuses-list']//div//span[2]")
     public List<WebElement> defaultStatusMessage;
-
-    @FindBy(xpath = "//div[@class='predefined-statuses-list']//div//span[3]")
-    public List<WebElement> defaultStatusMessageTime;
 
     @FindBy(xpath = "//*[@class=\"name-parts\"]")
     public List<WebElement> timeSetter;
@@ -87,20 +67,22 @@ public class StatusPopup {
 
 
 
-    
-
-    
-
-    
-
-    
-
-  
-
-   
-    
 
 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
