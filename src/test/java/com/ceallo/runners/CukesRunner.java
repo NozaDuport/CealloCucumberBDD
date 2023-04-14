@@ -12,8 +12,9 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/ceallo/step_definitions",
-        tags = "",
-        dryRun = false
+        dryRun = false,
+        tags = ""
+
 )
 
 public class CukesRunner {
