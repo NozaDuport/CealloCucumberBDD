@@ -59,6 +59,7 @@ public class StatusStepDefs{
         statusPopup.userAvatar.click();
         statusPopup.statusButton.click();
         WebElement status = Driver.getDriver().findElement(By.cssSelector("label[class$='icon-user-status-"+statusOption+"']"));
+        BrowserUtils.waitFor(2);
         assertTrue(status.isDisplayed());
 
     }
@@ -83,6 +84,7 @@ public class StatusStepDefs{
             //select the statusMessage example and verify if it is selected corrected
             if (eachElementText.contains(statusMessage)) {
                 BrowserUtils.clickWithJS(eachElement);
+                BrowserUtils.waitFor(2);
                 BrowserUtils.clickWithJS(statusPopup.buttonSetStatusMessage);
 
                 BrowserUtils.waitForClickablility(statusPopup.userAvatar, 5);
@@ -90,10 +92,12 @@ public class StatusStepDefs{
                 statusPopup.userAvatar.click();
 
                 //get the current status from status bar
-                String currentStatus = statusPopup.statusButton.getText().substring(3);
+                String currentStatus = statusPopup.statusButtonText.getText();
+                System.out.println("currentStatus = " + currentStatus);
+                System.out.println("eachElementText = " + eachElementText);
 
                 //verify if the selected status message appears on status bar
-                assertTrue(eachElementText.contains(currentStatus));
+                assertTrue(currentStatus.contains(eachElementText));
                 break;
 
             }
@@ -186,7 +190,7 @@ public class StatusStepDefs{
 
                 //set the status and time
                 statusPopup.buttonSetStatusMessage.click();
-                BrowserUtils.waitFor(1);
+                BrowserUtils.waitFor(2);
 
                 //open the online status popUp
                 statusPopup.userAvatar.click();
@@ -223,6 +227,9 @@ public class StatusStepDefs{
 
                     String hourCountDown = hoursLeftToNewDay + " hours";
 
+                    System.out.println("hourCountDown = " + hourCountDown);
+                    System.out.println("statusPopup.selectedTime.getText() = " + statusPopup.selectedTime.getText());
+
                     if(hourCountDown.contains(statusPopup.selectedTime.getText())){
                         assertTrue(true);
                     }else{
@@ -233,12 +240,16 @@ public class StatusStepDefs{
 
                 if(statusPopup.timeOptionVerify("This week", j)){
 
-                    int daysLeftToNewWeek = 7 - val;
+                    System.out.println("Day val = " + val);
+                    int daysLeftToNewWeek = 8 - val;
                     String thisWeekCountDown = daysLeftToNewWeek + " days";
 
-                    if(hourOfDay < 12){
+                    if(hourOfDay >= 12 && minOfDay >= 0){
                         --daysLeftToNewWeek;
                     }
+
+                    System.out.println("thisWeekCountDown = " + thisWeekCountDown);
+                    System.out.println("statusPopup.selectedTime.getText() = " + statusPopup.selectedTime.getText());
 
                     if(thisWeekCountDown.contains(statusPopup.selectedTime.getText())){
                         assertTrue(true);

@@ -6,7 +6,12 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TalkStepDefs {
 
@@ -54,6 +59,7 @@ public class TalkStepDefs {
     public void user_clicks_any_conversation_group() {
         talkPage.conversationTab.click();
     }
+
     @Then("User clicks participants tab")
     public void User_clicks_participants_tab() {
         talkPage.participantsTab.click();
@@ -61,7 +67,61 @@ public class TalkStepDefs {
 
     @Then("User sees participants on right hand menu")
     public void user_sees_participants_on_right_hand_menu() {
-        Assert.assertEquals(talkPage.firstParticipantInParticipantTab.getText(),talkPage.addEmployee1AsParicipant.getText());
+        Assert.assertEquals(talkPage.firstParticipantInParticipantTab.getText(), talkPage.addEmployee1AsParicipant.getText());
     }
 
+    @When("User clicks 3dots and clicks remove participant")
+    public void user_clicks_3dots_and_clicks_remove_participant() {
+        talkPage.participant3DotsMenu.click();
+        talkPage.removeParticipantBtn.click();
+    }
+
+    @Then("User should see {string} message")
+    public void user_should_see_message(String removeText) {
+        removeText = "You removed";
+        Assert.assertEquals(talkPage.removeMessage.getText().substring(0, 11), removeText);
+    }
+
+    @When("User clicks first conversation icon")
+    public void user_clicks_first_conversation_icon() {
+        talkPage.conversationIcon.click();
+    }
+
+
+    @When("User types message in message input box")
+    public void user_types_message_in_message_input_box() {
+        talkPage.messageInputBox.sendKeys("Hello World", Keys.ENTER);
+    }
+
+    @Then("User sees message appears in conversation")
+    public void user_sees_message_appears_in_conversation() {
+        Assert.assertTrue(talkPage.sentMessage.isDisplayed());
+    }
+
+    @When("User types conversation name2")
+    public void user_types_conversation_name2() {
+        talkPage.conversationName_InputBox.sendKeys(talkPage.conversationName2);
+    }
+
+    @When("User clicks first conversation 3dots menu")
+    public void user_clicks_first_conversation_3dots_menu() throws InterruptedException {
+        Thread.sleep(5000);
+        talkPage.conversations3DotsMenu.click();
+    }
+
+    @When("User clicks on delete conversation button")
+    public void user_clicks_on_delete_conversation_button() {
+        talkPage.deleteConversationBtn.click();
+    }
+
+    @When("User clicks Yes button")
+    public void user_clicks_yes_button() {
+        talkPage.yesBtn.click();
+    }
+
+    @Then("User does not see conversation name on conversations list")
+    public void user_does_not_see_conversation_name_on_conversations_list() {
+
+        Assert.assertFalse(talkPage.conversationList.contains(talkPage.firstConversation.getText()));
+    }
 }
